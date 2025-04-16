@@ -1,0 +1,317 @@
+/* General Reset */
+/* Orbitron Font Import */
+@import url('https://fonts.googleapis.com/css2?family=Orbitron&display=swap');
+@import url('https://fonts.googleapis.com/css?family=Roboto:100&display=swap');
+
+/* General Reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  body {
+    font-family: 'Roboto', sans-serif;
+    background: url('/img/background3.jpg') no-repeat center center fixed;
+    background-size: cover;
+    color:black;
+    overflow-x: hidden;
+    position: relative;
+  }
+    
+/* Collapsible Dashboard Styles */
+.dashboard {
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 250px;
+    background-color: rgba(245, 245, 245, 0.9); /* whitesmoke with opacity */
+    box-shadow: 2px 0 5px rgba(0, 0, 0, 0.2);
+    z-index: 1000;
+    overflow-x: hidden;
+    transition: transform 0.3s ease-in-out;
+    transform: translateX(-250px); /* Hide by default */
+}
+
+.dashboard.open {
+    transform: translateX(0); /* Slide in when open */
+}
+
+.dashboard-toggle {
+    position: absolute;
+    top: 20px;
+    right: -40px; /* Position to the left of the dashboard */
+    background-color: rgba(245, 245, 245, 0.9);
+    border: none;
+    color: black;
+    padding: 10px;
+    cursor: pointer;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+}
+
+.dashboard-toggle:hover {
+    background-color: rgba(220, 220, 220, 0.9); /* Lighter whitesmoke */
+}
+
+.dashboard-content {
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.dashboard-content a {
+    color: black;
+    text-decoration: none;
+    display: block;
+    padding: 10px;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+}
+
+.dashboard-content a:hover {
+    background-color: rgba(220, 220, 220, 0.9); /* Lighter whitesmoke */
+}
+
+.dashboard-content .social-media {
+    margin-top: 10px;
+    display: flex;
+    justify-content: space-around;
+}
+  
+  /* Container */
+  .container {
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px;
+  }
+  
+  /* Intro Section */
+  .intro-section {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    text-align: center;
+    background-color:whitesmoke;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    padding: 40px;
+    width: 90%;
+  }
+  
+  .profile-img {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-bottom: 20px;
+  }
+  
+  .social-media {
+    display: flex;
+    gap: 15px;
+    margin-top: 20px;
+  }
+  
+  .social-icon img {
+    width: 30px;
+    height: 30px;
+    transition: transform 0.3s;
+  }
+  
+  .social-icon:hover img {
+    transform: scale(1.1);
+  }
+  
+  .swipe-up {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    font-size: 24px;
+    cursor: pointer;
+    color: #0077ff;
+    font-weight: bold;
+    text-decoration: none;
+    transition: transform 0.3s, color 0.3s;
+    z-index: 999;
+    background-color: whitesmoke;
+    padding: 10px 15px;
+    border-radius: 50%;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+  }
+  .swipe-up:hover {
+    transform: translateY(-4px);
+    color:darkgray;
+  }
+  
+  .swipe-up:hover {
+    transform: translateY(-3px);
+  }
+  
+  /* Portfolio Content */
+  .portfolio-content {
+    display: none;
+    background-color: whitesmoke;
+    padding: 40px;
+    border-radius: 10px;
+    width: 90%;
+    margin-top: 30px;
+    text-align: center;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  }
+  
+  h2 {
+    color:darkgray;
+    margin-bottom: 20px;
+  }
+  
+  /* Animation */
+  @keyframes swipeUp {
+    0% {
+      transform: translateY(100%);
+    }
+    100% {
+      transform: translateY(0);
+    }
+  }
+  @keyframes swipeDown {
+    0% {
+      transform: translateY(0);
+      opacity: 1;
+    }
+    100% {
+      transform: translateY(100%);
+      opacity: 0;
+    }
+  }
+  .work-links {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    align-items: center;
+    margin-top: 30px;
+  }
+  
+  .work-button {
+    width: 200px;
+    height: auto;
+    cursor: pointer;
+    transition: transform 0.3s;
+    border-radius: 12px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+  }
+  
+  .work-button:hover {
+    transform: scale(1.05);
+  }
+  .background-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.4); /* dark overlay */
+    z-index: -1;
+  }
+  .project-card {
+    background-color: whitesmoke;
+    padding: 20px;
+    margin-bottom: 30px;
+    border-radius: 12px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.08);
+    text-align: center;
+  }
+  
+  .project-card p {
+    font-size: 16px;
+    margin-bottom: 10px;
+  }
+  
+  .project-card button {
+    background-color:black;
+    color: whitesmoke;
+    border: none;
+    padding: 10px 20px;
+    margin-bottom: 10px;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background 0.3s;
+  }
+  
+  .project-card button:hover {
+    background-color: black;
+  }
+  
+  .project-card a {
+    display: block;
+    margin-bottom: 10px;
+    color: black;
+    text-decoration: none;
+  }
+  
+  .project-card a:hover {
+    text-decoration: underline;
+  }
+  
+  .project-img {
+    width: 100%;
+    max-width: 400px;
+    height: auto;
+    border-radius: 8px;
+    margin-top: 10px;
+  }
+  
+  .extra-info {
+    margin-top: 50px;
+    text-align: left;
+    background-color: whitesmoke;
+    padding: 30px;
+    border-radius: 12px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  }
+  
+  .extra-info h3 {
+    color: black;
+    margin-top: 20px;
+  }
+  
+  .extra-info p {
+    font-size: 16px;
+    margin-top: 5px;
+  }
+
+  /* Certifications Page Styles */
+.certifications-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 20px;
+    margin-top: 20px;
+}
+
+.certificate-card {
+    background-color: whitesmoke;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    text-align: center;
+}
+
+.certificate-card img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 5px;
+    margin-bottom: 10px;
+}
