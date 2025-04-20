@@ -17,13 +17,59 @@
   }
   
   body {
+    background-color: black;
+    background-image: radial-gradient(white, transparent 2px), radial-gradient(white, transparent 2px);
+    background-size: 50px 50px, 100px 100px;
+    background-position: 0 0, 25px 25px;
+    color: white; /* Ensure text is visible on the black background */
     font-family: 'Roboto', sans-serif;
-    background: url('/img/background3.jpg') no-repeat center center fixed;
-    background-size: cover;
-    color:black;
     overflow-x: hidden;
     position: relative;
+    transition: background-color 0.3s ease, color 0.3s ease;
   }
+
+/* Default Light Mode Styles */
+body {
+    background-color: #ffffff;
+    color: #000000;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+/* Dark Mode Styles */
+body.dark-mode {
+    background-color: #121212;
+    color: #ffffff;
+}
+
+/* Remove Background Image */
+.background-overlay {
+    background: none; /* Removes any background image */
+}
+
+/* Theme Toggle Button */
+.theme-toggle {
+    position: fixed;
+    top: 10px;
+    left: 10px; /* Move to the left-hand side */
+    z-index: 1000; /* Ensure it stays on top */
+}
+
+#theme-toggle-btn {
+    padding: 10px;
+    cursor: pointer;
+    border: none;
+    border-radius: 50%;
+    background-color: #007bff;
+    color: #ffffff;
+    font-size: 20px;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+#theme-toggle-btn:hover {
+    background-color: #0056b3;
+    transform: scale(1.1); /* Slight zoom effect on hover */
+}
     
 /* Collapsible Dashboard Styles */
 .dashboard {
@@ -179,41 +225,102 @@
   }
   
   /* Animation */
-  @keyframes swipeUp {
-    0% {
-      transform: translateY(100%);
-    }
-    100% {
-      transform: translateY(0);
-    }
-  }
-  @keyframes swipeDown {
-    0% {
-      transform: translateY(0);
-      opacity: 1;
-    }
-    100% {
-      transform: translateY(100%);
+  /* Animation for showing portfolio */
+@keyframes zoomIn {
+  0% {
+      transform: scale(0.5) rotate(45deg);
       opacity: 0;
+  }
+  100% {
+      transform: scale(1) rotate(0deg);
+      opacity: 1;
+  }
+}
+
+/* Animation for hiding portfolio */
+@keyframes zoomOut {
+  0% {
+      transform: scale(1) rotate(0deg);
+      opacity: 1;
+  }
+  100% {
+      transform: scale(0.5) rotate(45deg);
+      opacity: 0;
+  }
+}
+
+/* Fade-in effect */
+@keyframes fadeIn {
+  0% {
+      opacity: 0;
+  }
+  100% {
+      opacity: 1;
+  }
+}
+
+/* Fade-out effect */
+@keyframes fadeOut {
+  0% {
+      opacity: 1;
+  }
+  100% {
+      opacity: 0;
+  }
+}
+
+/* Animation for expandable text */
+@keyframes slideDown {
+    from {
+        max-height: 0;
+        opacity: 0;
     }
-  }
-  .work-links {
-    display: flex;
-    flex-direction: column;
-    gap: 20px;
-    align-items: center;
-    margin-top: 30px;
-  }
-  
-  .work-button {
-    width: 200px;
-    height: auto;
-    cursor: pointer;
-    transition: transform 0.3s;
-    border-radius: 12px;
-    box-shadow: 0 4px 8px rgba(0,0,0,0.2);
-  }
-  
+    to {
+        max-height: 500px; /* Adjust based on content size */
+        opacity: 1;
+    }
+}
+
+@keyframes slideUp {
+    from {
+        max-height: 500px; /* Adjust based on content size */
+        opacity: 1;
+    }
+    to {
+        max-height: 0;
+        opacity: 0;
+    }
+}
+
+/* Expandable Text Styles */
+.expandable-text {
+    overflow: hidden;
+    max-height: 0;
+    transition: max-height 0.5s ease-out, opacity 0.5s ease-out;
+}
+
+.expandable-text.show {
+    animation: slideDown 0.5s ease-out forwards;
+}
+
+.expandable-text.hide {
+    animation: slideUp 0.5s ease-in forwards;
+}
+
+/* Portfolio Content Styles */
+.portfolio-content {
+  display: none;
+  background-color: whitesmoke;
+  padding: 40px;
+  border-radius: 10px;
+  width: 90%;
+  margin-top: 30px;
+  text-align: center;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+.hidden {
+  display: none;
+}
   .work-button:hover {
     transform: scale(1.05);
   }
