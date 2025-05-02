@@ -59,4 +59,14 @@ document.addEventListener("DOMContentLoaded", function () {
             }
         });
     });
+
+    function triggerExplosion() {
+        const swipeUp = document.querySelector('.swipe-up');
+        swipeUp.classList.add('explosive');
+
+        // Reset the animation after it completes
+        setTimeout(() => {
+            swipeUp.classList.remove('explosive');
+        }, 600); // Match the duration of the animation
+    }
 });
